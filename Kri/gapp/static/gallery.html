@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>Car Image Gallery</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>Cars Gallery</header>
+
+<div class="container">
+    <div class="gallery-box">
+        <img id="galleryImage" src="img1.jpg" alt="Car Image">
+        <p class="caption" id="caption">Mercedes Mayback</p>
+
+        <div class="buttons">
+            <button onclick="prev()">Previous</button>
+            <button onclick="next()">Next</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+Designed & Developed by Harikrishnan P &copy; 2025
+</footer>
+
+<script>
+let gallery = [
+    "img1.jpg",
+    "img2.jpg",
+    "img3.jpg",
+    "img4.jpg",
+    "img5.jpg"
+];
+
+let captions = [
+    "Mercedes Mayback",
+    "Bentley Continental GT",
+    "Ferrari",
+    "Rolls Royce Phantom",
+    "BMW"
+];
+
+let index = 0;
+
+function next(){
+    index++;
+    if(index >= gallery.length){
+        index = 0;
+    }
+    document.getElementById("galleryImage").src = gallery[index];
+    document.getElementById("caption").innerText = captions[index];
+}
+
+function prev(){
+    index--;
+    if(index < 0){
+        index = gallery.length - 1;
+    }
+    document.getElementById("galleryImage").src = gallery[index];
+    document.getElementById("caption").innerText = captions[index];
+}
+</script>
+
+</body>
+</html>
